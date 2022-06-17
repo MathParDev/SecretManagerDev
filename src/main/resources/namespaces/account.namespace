@@ -1,4 +1,4 @@
-DatabaseUrl=jdbc:mysql://localhost:3306/account
-DatabaseUsername=root
-DatabasePassword=1234
-SchoolUrl=http://localhost:8094
+DatabaseUrl=jdbc:mysql://eu-cdbr-west-02.cleardb.net
+DatabaseUsername=${DB_USER}
+DatabasePassword=${DB_PASS}
+SchoolUrl=http://localhost:8091
