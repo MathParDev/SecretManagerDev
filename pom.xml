@@ -16,8 +16,8 @@
     </properties>
 
     <scm>
-        <url>https://github.com/MathparLearningTeam/SecretManager</url>
-        <developerConnection>svm:git:https://github.com/MathparLearningTeam/SecretManager</developerConnection>
+        <url>https://github.com/MathParDev/SecretManagerDev</url>
+        <developerConnection>svm:git:https://github.com/MathParDev/SecretManagerDev</developerConnection>
     </scm>
 
     <packaging>war</packaging>
@@ -101,7 +101,7 @@
         <repository>
             <id>github-mathpar</id>
             <name>GitHub packages repository</name>
-            <url>https://maven.pkg.github.com/MathparLearningTeam/SecretManager</url>
+            <url>https://maven.pkg.github.com/MathParDev/SecretManagerDev</url>
         </repository>
     </distributionManagement>
 </project>
