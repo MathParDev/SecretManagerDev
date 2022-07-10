@@ -1,3 +1,5 @@
 DatabaseUrl=jdbc:mysql://localhost:3306/mathpar
 DatabaseUsername=root
 DatabasePassword=1234
+
+AccountUrl=http://localhost:8090
