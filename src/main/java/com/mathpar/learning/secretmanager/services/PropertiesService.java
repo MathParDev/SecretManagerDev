@@ -1,5 +1,6 @@
 package com.mathpar.learning.secretmanager.services;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -8,6 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Service
+@Slf4j
 public class PropertiesService {
     private final PropertiesProvider propertiesProvider;
     private final String defaultNamespace;
@@ -29,6 +31,7 @@ public class PropertiesService {
 
     public Map<String, String> getNamespaceProperties(String namespace){
         String properties = propertiesProvider.getNamespace(namespace);
+        log.info("PROPERTIES: " + properties);
         if(properties == null) throw new RuntimeException(String.format("Can't load namespace %s", namespace));
         final Map<String, String> propertiesMap = new HashMap<>();
         Arrays.stream(properties.split("\r\n")).forEach(s -> {
