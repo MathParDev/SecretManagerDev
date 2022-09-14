@@ -17,8 +17,8 @@ import java.util.Arrays;
  * Bulletproof behaviour and failure tolerance is strongly required though
  */
 //TODO Use encrypted files -> implement decryption mechanism
-@Service
 @Slf4j
+@Service
 @Profile("production")
 public class FilesystemPropertiesProvider implements PropertiesProvider{
     protected final String prefix;
@@ -28,6 +28,9 @@ public class FilesystemPropertiesProvider implements PropertiesProvider{
                                         @Value("${mathpar.secretmanager.properties-suffix:.namespace}") String suffix) {
         this.prefix = prefix;
         this.suffix = suffix;
+        log.info("PREFIX: " + prefix);
+        log.info("SUFFIX: " + suffix);
+
     }
 
     @Override
@@ -52,7 +55,8 @@ public class FilesystemPropertiesProvider implements PropertiesProvider{
     }
 
     protected String loadNamespace(String namespace) throws IOException {
-        log.info("FilePATH: " + Files.readString(Paths.get(prefix, namespace +suffix)));
+        log.info("NAMESPACE FILE: " + Files.readString(Paths.get(prefix, namespace +suffix)));
+
         return Files.readString(Paths.get(prefix, namespace +suffix));
     }
 }
