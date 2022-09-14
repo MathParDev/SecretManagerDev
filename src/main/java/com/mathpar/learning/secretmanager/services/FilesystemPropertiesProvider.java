@@ -1,5 +1,6 @@
 package com.mathpar.learning.secretmanager.services;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
@@ -17,6 +18,7 @@ import java.util.Arrays;
  */
 //TODO Use encrypted files -> implement decryption mechanism
 @Service
+@Slf4j
 @Profile("production")
 public class FilesystemPropertiesProvider implements PropertiesProvider{
     protected final String prefix;
@@ -32,6 +34,7 @@ public class FilesystemPropertiesProvider implements PropertiesProvider{
     public String getProperty(String namespace, String propertyKey) {
         try {
             String[] allProperties = loadNamespace(namespace).split("\n");
+
             var value = Arrays.stream(allProperties).map(property -> property.split("=")).filter(property-> property[0].equals(propertyKey)).findFirst();
             return value.orElseThrow(RuntimeException::new)[1];
         }catch (Exception e){
@@ -49,6 +52,7 @@ public class FilesystemPropertiesProvider implements PropertiesProvider{
     }
 
     protected String loadNamespace(String namespace) throws IOException {
+        log.info("FilePATH: " + Files.readString(Paths.get(prefix, namespace +suffix)));
         return Files.readString(Paths.get(prefix, namespace +suffix));
     }
 }
