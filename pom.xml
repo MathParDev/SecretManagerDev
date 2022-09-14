@@ -4,7 +4,7 @@
 
     <groupId>mathpar.web.learning</groupId>
     <artifactId>secret-manager</artifactId>
-    <version>0.8.0-SNAPSHOT</version>
+    <version>0.8.0</version>
 
     <name>SecretManager</name>
     <description>This module serves as KMS, storing different type of credentials and providing them to other services upon request</description>
@@ -18,7 +18,7 @@
     <scm>
         <url>https://github.com/MathParDev/SecretManagerDev</url>
         <developerConnection>svm:git:https://github.com/MathParDev/SecretManagerDev</developerConnection>
-      <tag>HEAD</tag>
+      <tag>0.8.0</tag>
   </scm>
 
     <packaging>war</packaging>
