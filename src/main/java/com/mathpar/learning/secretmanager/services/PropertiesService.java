@@ -34,7 +34,7 @@ public class PropertiesService {
         log.info("PROPERTIES: " + properties);
         if(properties == null) throw new RuntimeException(String.format("Can't load namespace %s", namespace));
         final Map<String, String> propertiesMap = new HashMap<>();
-        Arrays.stream(properties.split("\r\n")).forEach(s -> {
+        Arrays.stream(properties.split("\n")).forEach(s -> {
             if(s.isEmpty()) return;
             var propertiesRow = s.split("=");
             propertiesMap.put(propertiesRow[0], propertiesRow[1]);
